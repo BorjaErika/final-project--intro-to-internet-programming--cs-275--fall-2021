@@ -2,8 +2,11 @@ const {src, dest, series, watch }= require (`gulp`);
 const imageCompressor= require ('gulp-imagemin');
 const cssCompressor= require (`gulp-uglifycss`);
 const htmlCompressor = require(`gulp-htmlmin`);
-const jsCompressor = require(`gulp-uglify`);
-const jsLinyter
+const jsCompressor = require(`gulp-uglify`); //
+const jsLinter = require(`gulp-eslint`);//
+const cssLinter = require(`gulp-stylelint`);//
+const htmlValidator = require(`gulp-html`);
+
 // production tasks
 let compressImg = () => {
     return src(['images/*'])
@@ -30,8 +33,32 @@ let minifyJs = () => {
 };
 // development tasks
 
-
+let transpileJSForDev = () => {
+    return src(`js/*.js`)
+        .pipe(babel())
+        .pipe(dest(`dev/js`));
+};
+let lintJS = () => {
+    return src(`js/*.js`)
+        .pipe(jsLinter())
+        .pipe(jsLinter.formatEach());
+};
+let validateHTML = () => {
+    return src([
+        `/*.html`,
+        `html/**/*.html`])
+        .pipe(htmlValidator);
+};
+let lintCSS = () => {
+    return src(`css/*.css`)
+        .pipe(cssLinter({
+            failAfterError: false,
+            reporters: [
+                {formatter:  `string`, console: true}
+            ]
+        }));
+};
 
 // public tasks
 exports.build = series( uglifyCss, minifyHTML, compressImg, minifyJs);
-exports.serve = series (lintJS, transpileJSForDev, validateHTML, lintCSS, serve);
+exports.serve = series (lintJS, transpileJSForDev, validateHTML, lintCSS);
