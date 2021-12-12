@@ -1,17 +1,17 @@
-const {src, dest, series, watch }= require (`gulp`);
-const imageCompressor= require ('gulp-imagemin');
+const {src, dest, series}= require (`gulp`);
+const imageCompressor= require (`gulp-imagemin`);
 const cssCompressor= require (`gulp-uglifycss`);
 const htmlCompressor = require(`gulp-htmlmin`);
-const jsCompressor = require(`gulp-uglify`); //
+const jsCompressor = require(`gulp-uglify`);
 const jsLinter = require(`gulp-eslint`);//
 const cssLinter = require(`gulp-stylelint`);//
 const htmlValidator = require(`gulp-html`);
+const babel = require(`gulp-babel`);
 
 // production tasks
 let compressImg = () => {
-    return src(['images/*'])
-        .pipe(imageCompressor())
-        .pipe(dest('prod/img'))
+    return src([`images/*`])
+        .pipe(dest(`prod/img`));
 };
 
 let uglifyCss = () => {
@@ -28,9 +28,11 @@ let minifyHTML = () => {
 
 let minifyJs = () => {
     return src(`js/*.js`)
+        .pipe(babel())
         .pipe(jsCompressor())
         .pipe(dest(`prod/js`));
 };
+
 // development tasks
 
 let transpileJSForDev = () => {
@@ -49,6 +51,7 @@ let validateHTML = () => {
         `html/**/*.html`])
         .pipe(htmlValidator);
 };
+
 let lintCSS = () => {
     return src(`css/*.css`)
         .pipe(cssLinter({
@@ -60,5 +63,5 @@ let lintCSS = () => {
 };
 
 // public tasks
-exports.build = series( uglifyCss, minifyHTML, compressImg, minifyJs);
+exports.build = series( uglifyCss, minifyHTML, compressImg,minifyJs);
 exports.serve = series (lintJS, transpileJSForDev, validateHTML, lintCSS);
