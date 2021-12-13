@@ -8,6 +8,7 @@ const cssLinter = require(`gulp-stylelint`);//
 const htmlValidator = require(`gulp-html`);
 const babel = require(`gulp-babel`);
 require(`gulp-cache`);
+const del = require(`del`);
 const browserSync = require(`browser-sync`);
 const reload = browserSync.reload;
 
@@ -40,7 +41,7 @@ async function allBrowsers () {
 
 // production tasks
 let compressImg = () => {
-    return src([`images/*`])
+    return src(['img/*.png, img/*.svg'])
         .pipe(dest(`prod/img`));
 };
 
@@ -73,13 +74,11 @@ let transpileJSForDev = () => {
 let lintJS = () => {
     return src(`js/*.js`)
         .pipe(jsLinter())
-        .pipe(jsLinter.formatEach());
+        .pipe(jsLinter.formatEach('compact'));
 };
 let validateHTML = () => {
-    return src([
-        `/*.html`,
-        `html/**/*.html`])
-        .pipe(htmlValidator);
+    return src(`*.html`)
+        .pipe(htmlValidator(undefined));
 };
 
 let lintCSS = () => {
