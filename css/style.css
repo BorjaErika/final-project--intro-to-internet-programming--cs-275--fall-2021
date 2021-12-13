@@ -1,28 +1,33 @@
-header{
+header {
   text-align: center;
-  font-weight: bold;
+  font-weight: 100;
   padding-top: 18px;
   padding-bottom: 18px;
   font-size: 35px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
-body{
+
+body {
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-h1{
+
+h1 {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 100;
   vertical-align: top;
   text-align: left;
   margin-right: 50px;
 }
-.mySlides{
+
+.mySlides {
   display: flex;
   flex-direction: row;
 }
-.carousel_track-container{
+
+.carousel_track-container {
   background: transparent;
   display: flex;
   flex-direction: row;
@@ -30,14 +35,16 @@ h1{
   width: 500px;
   margin: 0 0% 0%;
 }
-.carousel_track{
+
+.carousel_track {
   display: flex;
- width: 500px;
+  width: 500px;
   position: relative;
   left: 0;
   transition: left 1s;
 }
-img{
+
+img {
   width: 215px;
   height: 250px;
   float: left;
@@ -45,23 +52,27 @@ img{
   padding: 15px 20px;
   z-index: 1;
 }
-.content{
+
+.content {
   display: flex;
   flex-direction: column;
   width: 295px;
 }
-.left{
+
+.left {
   height: 80px;
   margin: 100px 0% 0%;
-}
-.right{
-  height: 80px;
-  margin: 100px 0% 0%;
-}
-button, img{
-  cursor: pointer;
-}
-p{
- white-space: normal;
 }
 
+.right {
+  height: 80px;
+  margin: 100px 0% 0%;
+}
+
+button img {
+  cursor: pointer;
+}
+
+p {
+  white-space: normal;
+}
