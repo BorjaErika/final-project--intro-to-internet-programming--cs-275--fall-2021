@@ -71,11 +71,13 @@ let transpileJSForDev = () => {
         .pipe(babel())
         .pipe(dest(`dev/js`));
 };
+
 let lintJS = () => {
     return src(`js/*.js`)
         .pipe(jsLinter())
         .pipe(jsLinter.formatEach('compact'));
 };
+
 let validateHTML = () => {
     return src(`*.html`)
         .pipe(htmlValidator(undefined));
