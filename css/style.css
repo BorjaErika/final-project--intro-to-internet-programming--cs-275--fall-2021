@@ -1,0 +1,85 @@
+header{
+  text-align: center;
+  font-weight: bold;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 35px;
+}
+h1{
+  font-size: 16px;
+  font-weight: bold;
+  vertical-align: top;
+  text-align: left;
+  margin-right: 50px;
+}
+.mySlides{
+  position: relative;
+  align-items: center;
+  height:300px;
+  width:550px;
+  margin:0 auto;
+  padding: 80px;
+  overflow: hidden;
+}
+.carousel-image{
+  position: absolute;
+
+}
+.blue{
+  position: absolute;
+
+}
+.red{
+  position: absolute;
+}
+.black{
+  position: absolute;
+}
+.green{
+  position: absolute;
+}
+img{
+  width: auto;
+  text-align: left;
+  float: left;
+  position: relative;
+  padding: 18px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  z-index: 1;
+  object-fit: cover;
+}
+/*.left, .right{
+  cursor:pointer;
+  position: absolute;
+  top:50%;
+  width: 500px;
+  height: 10000px;
+  left: 60px ;
+  right: -40px;
+  user-select: none;
+  z-index: 2;
+}*/
+.carousel_button{
+  position:absolute;
+  top:50%;
+  transform: translate(-50%);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.carousel_button--left{
+  left: -40px;
+}
+.carousel_button--right{
+  right: -40px;
+}
+.carousel_button img{
+  width: 15px;
+}
+p{
+  text-align: left;
+  vertical-align: top;
+  margin-right: 80px;
+}
+
