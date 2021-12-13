@@ -5,6 +5,12 @@ header{
   padding-bottom: 18px;
   font-size: 35px;
 }
+body{
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 h1{
   font-size: 16px;
   font-weight: bold;
@@ -13,73 +19,49 @@ h1{
   margin-right: 50px;
 }
 .mySlides{
-  position: relative;
-  align-items: center;
-  height:300px;
-  width:550px;
-  margin:0 auto;
-  padding: 80px;
+  display: flex;
+  flex-direction: row;
+}
+.carousel_track-container{
+  background: transparent;
+  display: flex;
+  flex-direction: row;
   overflow: hidden;
+  width: 500px;
+  margin: 0 0% 0%;
 }
-.carousel-image{
-  position: absolute;
-
-}
-.blue{
-  position: absolute;
-
-}
-.red{
-  position: absolute;
-}
-.black{
-  position: absolute;
-}
-.green{
-  position: absolute;
+.carousel_track{
+  display: flex;
+ width: 500px;
+  position: relative;
+  left: 0;
+  transition: left 1s;
 }
 img{
-  width: auto;
-  text-align: left;
+  width: 215px;
+  height: 250px;
   float: left;
-  position: relative;
-  padding: 18px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  vertical-align: middle;
+  padding: 15px 20px;
   z-index: 1;
-  object-fit: cover;
 }
-/*.left, .right{
-  cursor:pointer;
-  position: absolute;
-  top:50%;
-  width: 500px;
-  height: 10000px;
-  left: 60px ;
-  right: -40px;
-  user-select: none;
-  z-index: 2;
-}*/
-.carousel_button{
-  position:absolute;
-  top:50%;
-  transform: translate(-50%);
-  background: transparent;
-  border: 0;
+.content{
+  display: flex;
+  flex-direction: column;
+  width: 295px;
+}
+.left{
+  height: 80px;
+  margin: 100px 0% 0%;
+}
+.right{
+  height: 80px;
+  margin: 100px 0% 0%;
+}
+button, img{
   cursor: pointer;
 }
-.carousel_button--left{
-  left: -40px;
-}
-.carousel_button--right{
-  right: -40px;
-}
-.carousel_button img{
-  width: 15px;
-}
 p{
-  text-align: left;
-  vertical-align: top;
-  margin-right: 80px;
+ white-space: normal;
 }
 
