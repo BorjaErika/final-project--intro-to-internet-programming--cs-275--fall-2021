@@ -4,10 +4,13 @@
 !.editorconfig
 !.eslintrc.json
 !.stylelintrc.json
+!.babelrc
 !README.md
 !index.html
 !gulpfile.js
+!package.json
+!package.lock.json
 
 !css/
 !img/
-!js/
+
